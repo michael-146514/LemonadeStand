@@ -21,10 +21,10 @@ namespace LemonadeStand
             sugarCubes = new List<SugarCube>();
             iceCubes = new List<IceCube>();
             cups = new List<Cup>();
-            AddLemonsToInventory(20);
-            AddSugarCubesToInventory(20);
-            AddIceCubesToInventory(100);
-            AddCupsToInventory(30);
+            AddLemonsToInventory(220);
+            AddSugarCubesToInventory(220);
+            AddIceCubesToInventory(1000);
+            AddCupsToInventory(330);
         }
 
         // member methods (CAN DO)
@@ -64,6 +64,14 @@ namespace LemonadeStand
             }
         }
 
+        public void displayInventory()
+        {
+            Console.WriteLine("Inventory - ");
+            Console.WriteLine($"Lemons: {lemons.Count}");
+            Console.WriteLine($"Sugar Cubes: {sugarCubes.Count}");
+            Console.WriteLine($"IceCubes: {iceCubes.Count}");
+            Console.WriteLine($"Cups: {cups.Count}");
+        }
 
     }
 }

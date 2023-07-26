@@ -9,10 +9,10 @@ namespace LemonadeStand
     class Store
     {
         // member variables (HAS A)
-        private double pricePerLemon;
-        private double pricePerSugarCube;
-        private double pricePerIceCube;
-        private double pricePerCup;
+        public double pricePerLemon;
+        public double pricePerSugarCube;
+        public double pricePerIceCube;
+        public double pricePerCup;
 
         // constructor (SPAWNER)
         public Store()
@@ -78,5 +78,10 @@ namespace LemonadeStand
         {
             wallet.PayMoneyForItems(transactionAmount);
         }
+
+
+
+
+
     }
 }
