@@ -14,6 +14,8 @@ namespace LemonadeStand
         public List<IceCube> iceCubes;
         public List<Cup> cups;
 
+
+
         // constructor (SPAWNER)
         public Inventory()
         {
@@ -72,6 +74,8 @@ namespace LemonadeStand
             Console.WriteLine($"IceCubes: {iceCubes.Count}");
             Console.WriteLine($"Cups: {cups.Count}");
         }
+
+    
 
     }
 }

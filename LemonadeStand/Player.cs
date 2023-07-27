@@ -26,7 +26,11 @@ namespace LemonadeStand
         public void DisplayWallet()
         {
             Console.WriteLine($"You have ${wallet.Money}");
+           
         }
+
+      
+
 
     }
 }

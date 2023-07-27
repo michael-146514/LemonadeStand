@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand
 {
-    internal class Game
+     class Game
     {
         public Player player;
         public Weather weather;
         public Store store;
+        public Customer customer;
+        public Recipe recipe;
 
         public void game()
         {
@@ -33,6 +35,7 @@ namespace LemonadeStand
             player = new Player();
             weather = new Weather();
             store = new Store();
+            recipe = new Recipe();
         }
 
         public void days()
@@ -40,9 +43,7 @@ namespace LemonadeStand
             weather.PickWeather();
             player.inventory.displayInventory();
             shop();
-         
-            store.SellCups(player);
-            player.inventory.displayInventory();
+            CreateCustomer();
             player.DisplayWallet();
         }
 
@@ -62,9 +63,16 @@ namespace LemonadeStand
                 store.SellIceCubes(player);
                 player.DisplayWallet();
                 store.SellCups(player);
-              
+            }
+        }
+
+        public void CreateCustomer()
+        {
+            customer = new Customer(weather.weather);
+            if(customer.buy == true)
+            {
+                player.wallet.AcceptMoney(player.recipe.price);
                 
-               
             }
         }
     }
