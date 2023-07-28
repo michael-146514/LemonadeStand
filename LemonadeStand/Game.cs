@@ -19,7 +19,7 @@ namespace LemonadeStand
             CreateObjects();
             DisplayWelcomeMessage();
             player.DisplayWallet();
-            days();
+            days(7);
             
         }
 
@@ -38,13 +38,19 @@ namespace LemonadeStand
             recipe = new Recipe();
         }
 
-        public void days()
+        public void days(int days)
         {
-            weather.PickWeather();
+
+            for(int i = 1; i <= days; i++)
+            {
+                weather.PickWeather();
             player.inventory.displayInventory();
             shop();
             CreateCustomer();
             player.DisplayWallet();
+            player.inventory.displayInventory();
+            }
+           
         }
 
         public void shop()
@@ -68,12 +74,17 @@ namespace LemonadeStand
 
         public void CreateCustomer()
         {
-            customer = new Customer(weather.weather);
+            for (int i = 0; i <= 20; i++)
+            {
+                customer = new Customer(weather.weather);
             if(customer.buy == true)
             {
                 player.wallet.AcceptMoney(player.recipe.price);
-                
+                player.recipeItems();
             }
+            }
+
+           
         }
     }
 }

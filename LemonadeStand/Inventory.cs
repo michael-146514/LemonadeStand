@@ -13,6 +13,7 @@ namespace LemonadeStand
         public List<SugarCube> sugarCubes;
         public List<IceCube> iceCubes;
         public List<Cup> cups;
+        public bool soldOut = false;
 
 
 
@@ -61,9 +62,10 @@ namespace LemonadeStand
         {
             for(int i = 0; i < numberOfCups; i++)
             {
-                Cup cup = new Cup();
+               Cup cup = new Cup();
                 cups.Add(cup);
             }
+          
         }
 
         public void displayInventory()
@@ -75,7 +77,50 @@ namespace LemonadeStand
             Console.WriteLine($"Cups: {cups.Count}");
         }
 
-    
 
+        //Remove Items from Inventory
+        public void RemoveCupToInventory(int numberOfCups)
+        {
+            for (int i = 0; i < numberOfCups; i++)
+            {
+
+                cups.RemoveAt(cups.Count - 1);
+            }
+        }
+
+        public void RemoveIceCubesToInventory(int numberOfIceCubes)
+        {
+            for (int i = 0; i < numberOfIceCubes; i++)
+            {
+                // iceCubes.Remove(1);
+                iceCubes.RemoveAt(iceCubes.Count - 1);
+            }
+        }
+
+        public void RemoveSugarCubesToInventory(int numberOfSugarCubes)
+        {
+            for (int i = 0; i < numberOfSugarCubes; i++)
+            {
+              
+                sugarCubes.RemoveAt(sugarCubes.Count - 1);
+            }
+        }
+
+        public void RemoveLemonsToInventory(int numberOfLemons)
+        {
+            for (int i = 0; i < numberOfLemons; i++)
+            {
+                lemons.RemoveAt(lemons.Count - 1);
+            }
+        }
+
+       public void checkIfSoldOut()
+        {
+            if (lemons.Count == 0 || sugarCubes.Count == 0 || iceCubes.Count == 0 || cups.Count == 0)
+            {
+                soldOut = true;
+            }
+
+        }
     }
 }

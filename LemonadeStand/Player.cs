@@ -30,7 +30,13 @@ namespace LemonadeStand
         }
 
       
-
+        public void recipeItems()
+        {
+            inventory.RemoveCupToInventory(1);
+            inventory.RemoveIceCubesToInventory(recipe.numberOfIceCubes);
+            inventory.RemoveLemonsToInventory(recipe.numberOfLemons);
+            inventory.RemoveSugarCubesToInventory(recipe.numberOfSugarCubes);
+        }
 
     }
 }
