@@ -18,7 +18,7 @@ namespace LemonadeStand
         {
             CreateObjects();
             DisplayWelcomeMessage();
-            player.DisplayWallet();
+            player.recipe.DisplayRecipe();
             days(7);
             
         }
@@ -43,8 +43,11 @@ namespace LemonadeStand
 
             for(int i = 1; i <= days; i++)
             {
-                weather.PickWeather();
+                Console.WriteLine();
             player.inventory.displayInventory();
+                Console.WriteLine();
+            weather.PickWeather();
+
             shop();
             CreateCustomer();
             player.DisplayWallet();
@@ -76,9 +79,7 @@ namespace LemonadeStand
         {
             for (int i = 0; i <= 20; i++)
             {
-                
                 player.inventory.checkIfSoldOut();
-            
                 customer = new Customer();
                 customer.soldOut = player.inventory.soldOut;
                 customer.CheckIfBuying(weather.weather);

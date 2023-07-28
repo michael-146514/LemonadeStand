@@ -25,9 +25,9 @@ namespace LemonadeStand
             iceCubes = new List<IceCube>();
             cups = new List<Cup>();
             AddLemonsToInventory(0);
-            AddSugarCubesToInventory(220);
-            AddIceCubesToInventory(1000);
-            AddCupsToInventory(330);
+            AddSugarCubesToInventory(0);
+            AddIceCubesToInventory(0);
+            AddCupsToInventory(0);
         }
 
         // member methods (CAN DO)
@@ -81,37 +81,75 @@ namespace LemonadeStand
         //Remove Items from Inventory
         public void RemoveCupToInventory(int numberOfCups)
         {
-            for (int i = 0; i < numberOfCups; i++)
+            try
             {
+                for (int i = 0; i < numberOfCups; i++)
+                 {
 
                 cups.RemoveAt(cups.Count - 1);
+                 }
             }
+            catch
+            {
+                Console.WriteLine("Ran out of Cups, Sold Out");
+                soldOut = true;
+            }
+           
         }
 
         public void RemoveIceCubesToInventory(int numberOfIceCubes)
         {
+            try
+            {
             for (int i = 0; i < numberOfIceCubes; i++)
             {
                 // iceCubes.Remove(1);
                 iceCubes.RemoveAt(iceCubes.Count - 1);
             }
+            }
+            catch
+            {
+                Console.WriteLine("Ran out of IceCubes, Sold Out");
+                soldOut = true;
+            }
+
+           
         }
 
         public void RemoveSugarCubesToInventory(int numberOfSugarCubes)
         {
-            for (int i = 0; i < numberOfSugarCubes; i++)
-            {
-              
-                sugarCubes.RemoveAt(sugarCubes.Count - 1);
+           
+                try
+                {
+                  for (int i = 0; i < numberOfSugarCubes; i++)
+                  {
+                  sugarCubes.RemoveAt(sugarCubes.Count - 1);
+                  }
+        
+                }
+                catch
+                {
+                    Console.WriteLine("Ran out of ice, Sold Out");
+                 soldOut = true;
             }
-        }
+            }
+       
 
         public void RemoveLemonsToInventory(int numberOfLemons)
         {
-            for (int i = 0; i < numberOfLemons; i++)
+            try
             {
+                for (int i = 0; i < numberOfLemons; i++)
+                 {
                 lemons.RemoveAt(lemons.Count - 1);
+                 }
             }
+            catch
+            {
+                Console.WriteLine("Sold out of Lemons, Sold Out");
+                soldOut = true;
+            }
+            
         }
 
        public void checkIfSoldOut()
