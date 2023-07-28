@@ -13,7 +13,7 @@ namespace LemonadeStand
         public List<SugarCube> sugarCubes;
         public List<IceCube> iceCubes;
         public List<Cup> cups;
-        public bool soldOut = false;
+        public bool soldOut;
 
 
 
@@ -24,7 +24,7 @@ namespace LemonadeStand
             sugarCubes = new List<SugarCube>();
             iceCubes = new List<IceCube>();
             cups = new List<Cup>();
-            AddLemonsToInventory(220);
+            AddLemonsToInventory(0);
             AddSugarCubesToInventory(220);
             AddIceCubesToInventory(1000);
             AddCupsToInventory(330);
@@ -119,6 +119,10 @@ namespace LemonadeStand
             if (lemons.Count == 0 || sugarCubes.Count == 0 || iceCubes.Count == 0 || cups.Count == 0)
             {
                 soldOut = true;
+            }
+            else
+            {
+                soldOut = false;
             }
 
         }

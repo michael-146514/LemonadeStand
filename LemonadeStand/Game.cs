@@ -76,10 +76,16 @@ namespace LemonadeStand
         {
             for (int i = 0; i <= 20; i++)
             {
-                customer = new Customer(weather.weather);
-            if(customer.buy == true)
+                
+                player.inventory.checkIfSoldOut();
+            
+                customer = new Customer();
+                customer.soldOut = player.inventory.soldOut;
+                customer.CheckIfBuying(weather.weather);
+            if(customer.buy == true && player.inventory.soldOut == false)
             {
-                player.wallet.AcceptMoney(player.recipe.price);
+                    Console.WriteLine("Buying Lemonade");
+                    player.wallet.AcceptMoney(player.recipe.price);
                 player.recipeItems();
             }
             }

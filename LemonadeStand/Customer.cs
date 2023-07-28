@@ -10,24 +10,31 @@ namespace LemonadeStand
     {
        
         public bool buy = false;
+        public bool soldOut;
 
-        public Customer(string weather)
+        public Customer()
         {
             
-            Random rand = new Random();
-            
+        
+        }
 
+
+        public void CheckIfBuying(string weather)
+        {
+            Random rand = new Random();
+          
             Console.WriteLine("Person is Walking by the Lemonade Stand");
 
-
-
-            if (weather == "Clear Sky")
+            if (soldOut == true)
+            {
+                Console.WriteLine("Sold Out cant buy anything");
+            }
+            else if (weather == "Clear Sky")
             {
                 int chance = rand.Next(1, 100);
 
                 if (chance < 65)
                 {
-                    Console.WriteLine("Buying Lemonade");
                     buy = true;
                 }
                 else
@@ -41,7 +48,6 @@ namespace LemonadeStand
 
                 if (chance < 50)
                 {
-                    Console.WriteLine("Buying Lemonade");
                     buy = true;
                 }
                 else
@@ -55,7 +61,6 @@ namespace LemonadeStand
 
                 if (chance < 40)
                 {
-                    Console.WriteLine("Buying Lemonade");
                     buy = true;
                 }
                 else
@@ -69,7 +74,6 @@ namespace LemonadeStand
 
                 if (chance < 25)
                 {
-                    Console.WriteLine("Buying Lemonade");
                     buy = true;
                 }
                 else
@@ -83,7 +87,6 @@ namespace LemonadeStand
 
                 if (chance < 80)
                 {
-                    Console.WriteLine("Buying Lemonade");
                     buy = true;
                 }
                 else
@@ -92,8 +95,6 @@ namespace LemonadeStand
                 }
             }
         }
-
-        
 
     }
 }
