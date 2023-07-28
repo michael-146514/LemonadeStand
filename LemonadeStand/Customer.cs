@@ -11,6 +11,8 @@ namespace LemonadeStand
        
         public bool buy = false;
         public bool soldOut;
+        public int pricePercent;
+
 
         public Customer()
         {
@@ -96,5 +98,10 @@ namespace LemonadeStand
             }
         }
 
+
+        public void priceChance()
+        {
+
+        }
     }
 }
