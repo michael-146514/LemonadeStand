@@ -12,7 +12,6 @@ namespace LemonadeStand
         public Weather weather;
         public Store store;
         public Customer customer;
-        public Recipe recipe;
 
         public void game()
         {
@@ -35,7 +34,6 @@ namespace LemonadeStand
             player = new Player();
             weather = new Weather();
             store = new Store();
-            recipe = new Recipe();
         }
 
         public void days(int days)
@@ -80,18 +78,16 @@ namespace LemonadeStand
             for (int i = 0; i <= 20; i++)
             {
                 player.inventory.checkIfSoldOut();
-                customer = new Customer();
+                customer = new Customer(weather.weather);
                 customer.soldOut = player.inventory.soldOut;
                 customer.CheckIfBuying(weather.weather);
             if(customer.buy == true && player.inventory.soldOut == false)
-            {
+                  {
                     Console.WriteLine("Buying Lemonade");
                     player.wallet.AcceptMoney(player.recipe.price);
                 player.recipeItems();
+                  }
             }
-            }
-
-           
         }
     }
 }

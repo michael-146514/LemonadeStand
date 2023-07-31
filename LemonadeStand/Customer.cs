@@ -12,11 +12,11 @@ namespace LemonadeStand
         public bool buy = false;
         public bool soldOut;
         public int pricePercent;
+        public int priceCost;
 
-
-        public Customer()
+        public Customer(string weather)
         {
-            
+            priceChance(weather);
         
         }
 
@@ -35,7 +35,7 @@ namespace LemonadeStand
             {
                 int chance = rand.Next(1, 100);
 
-                if (chance < 65)
+                if (chance < pricePercent)
                 {
                     buy = true;
                 }
@@ -48,7 +48,7 @@ namespace LemonadeStand
             {
                 int chance = rand.Next(1, 100);
 
-                if (chance < 50)
+                if (chance < pricePercent)
                 {
                     buy = true;
                 }
@@ -61,7 +61,7 @@ namespace LemonadeStand
             {
                 int chance = rand.Next(1, 100);
 
-                if (chance < 40)
+                if (chance < pricePercent)
                 {
                     buy = true;
                 }
@@ -74,7 +74,7 @@ namespace LemonadeStand
             {
                 int chance = rand.Next(1, 100);
 
-                if (chance < 25)
+                if (chance < pricePercent)
                 {
                     buy = true;
                 }
@@ -87,7 +87,7 @@ namespace LemonadeStand
             {
                 int chance = rand.Next(1, 100);
 
-                if (chance < 80)
+                if (chance < pricePercent)
                 {
                     buy = true;
                 }
@@ -99,9 +99,75 @@ namespace LemonadeStand
         }
 
 
-        public void priceChance()
+        public void priceChance(string weather)
         {
+            Random rand = new Random();
 
+            if (weather == "Clear Sky")
+            {
+                int chance = rand.Next(1, 15);
+
+                if(priceCost <= 1)
+                {
+                    pricePercent = chance - 65;
+                }
+                else if(priceCost >= 1)
+                {
+                    pricePercent = chance + 65;
+                }
+            }
+            else if(weather == "Cloudy Sky")
+            {
+                int chance = rand.Next(1, 13);
+
+                if (priceCost <= .90)
+                {
+                    pricePercent = chance - 50;
+                }
+                else if (priceCost >= .90)
+                {
+                    pricePercent = chance + 50;
+                }
+            }
+            else if(weather == "Raining")
+            {
+                int chance = rand.Next(1, 15);
+
+                if (priceCost <= .75)
+                {
+                    pricePercent = chance - 40;
+                }
+                else if (priceCost >= .75)
+                {
+                    pricePercent = chance + 40;
+                }
+            }
+            else if(weather == "Storming")
+            {
+                int chance = rand.Next(1, 15);
+
+                if (priceCost <= .65)
+                {
+                    pricePercent = chance - 25;
+                }
+                else if (priceCost >= .65)
+                {
+                    pricePercent = chance + 25;
+                }
+            }
+            else if(weather == "Heat Wave")
+            {
+                int chance = rand.Next(1, 10);
+
+                if (priceCost <= 1.2)
+                {
+                    pricePercent = chance - 80;
+                }
+                else if (priceCost >= 1.2)
+                {
+                    pricePercent = chance + 80;
+                }
+            }
         }
     }
 }
