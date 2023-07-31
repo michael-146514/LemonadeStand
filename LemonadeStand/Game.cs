@@ -45,14 +45,14 @@ namespace LemonadeStand
             player.inventory.displayInventory();
                 Console.WriteLine();
             weather.PickWeather();
-
+                createRecipe();
             shop();
             CreateCustomer();
             player.DisplayWallet();
             player.inventory.displayInventory();
                 player.DisplayProfitOrLoss(store.pricePerLemon, store.pricePerSugarCube, store.pricePerIceCube, store.pricePerCup);
             }
-           
+            player.inTotalMade();
         }
 
         public void shop()
@@ -87,8 +87,19 @@ namespace LemonadeStand
                     Console.WriteLine("Buying Lemonade");
                     player.wallet.AcceptMoney(player.recipe.price);
                 player.recipeItems();
-                    player.totalMade++;
+                    player.Daytotal++;
                   }
+            }
+        }
+
+        public void createRecipe()
+        {
+            Console.WriteLine("Would you like to edit the Recipe? Enter Yes or no");
+            string yesOrno = Console.ReadLine();
+
+            if(yesOrno == "Yes" || yesOrno == "yes")
+            {
+                player.recipe.setRecipe();
             }
         }
     }

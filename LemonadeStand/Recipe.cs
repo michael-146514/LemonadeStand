@@ -29,5 +29,12 @@ namespace LemonadeStand
         {
             Console.WriteLine($"Your recipe currently consists of:\n{numberOfLemons} lemons per pitcher\n{numberOfSugarCubes} sugar cubes per pitcher\n{numberOfIceCubes} ice cubes per pitcher");
         }
+
+        public void setRecipe()
+        {
+            numberOfLemons = UserInterface.GetNumberOfRecipe("lemons");
+            numberOfSugarCubes = UserInterface.GetNumberOfRecipe("Sugar Cubes");
+            numberOfIceCubes = UserInterface.GetNumberOfRecipe("Ice Cubes");
+        }
     }
 }

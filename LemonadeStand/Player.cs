@@ -13,7 +13,8 @@ namespace LemonadeStand
         public Wallet wallet;
         public Recipe recipe;
         public double profitOrLoss;
-        public double totalMade = 0;
+        public double totalMade;
+        public double Daytotal;
 
         // constructor (SPAWNER)
         public Player()
@@ -49,9 +50,16 @@ namespace LemonadeStand
 
             double total = lemon + sugarCube + icecube + cup;
             profitOrLoss = recipe.price - total;
-            totalMade = profitOrLoss * totalMade;
+            Daytotal = profitOrLoss * Daytotal;
+            totalMade = profitOrLoss * Daytotal;
 
-            Console.WriteLine($"You made ${profitOrLoss} selling one Cup, In total you made ${totalMade} in a day");
+            Console.WriteLine($"You made ${profitOrLoss} selling one Cup, In total you made ${Daytotal} in a day");
+            Daytotal = 0;
+        }
+
+        public void inTotalMade()
+        {
+            Console.WriteLine($"You made ${totalMade} in 7 days!!!");
         }
     }
 }
