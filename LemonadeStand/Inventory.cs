@@ -24,10 +24,10 @@ namespace LemonadeStand
             sugarCubes = new List<SugarCube>();
             iceCubes = new List<IceCube>();
             cups = new List<Cup>();
-            AddLemonsToInventory(0);
-            AddSugarCubesToInventory(0);
-            AddIceCubesToInventory(0);
-            AddCupsToInventory(0);
+            AddLemonsToInventory(100);
+            AddSugarCubesToInventory(100);
+            AddIceCubesToInventory(100);
+            AddCupsToInventory(100);
         }
 
         // member methods (CAN DO)
@@ -65,7 +65,6 @@ namespace LemonadeStand
                Cup cup = new Cup();
                 cups.Add(cup);
             }
-          
         }
 
         public void displayInventory()
@@ -85,35 +84,30 @@ namespace LemonadeStand
             {
                 for (int i = 0; i < numberOfCups; i++)
                  {
-
-                cups.RemoveAt(cups.Count - 1);
+                   cups.RemoveAt(cups.Count - 1);
                  }
             }
-            catch
+             catch
             {
                 Console.WriteLine("Ran out of Cups, Sold Out");
                 soldOut = true;
             }
-           
         }
 
         public void RemoveIceCubesToInventory(int numberOfIceCubes)
         {
             try
             {
-            for (int i = 0; i < numberOfIceCubes; i++)
-            {
-                // iceCubes.Remove(1);
-                iceCubes.RemoveAt(iceCubes.Count - 1);
+                 for (int i = 0; i < numberOfIceCubes; i++)
+                 {
+                   iceCubes.RemoveAt(iceCubes.Count - 1);
+                 }
             }
-            }
-            catch
+              catch
             {
                 Console.WriteLine("Ran out of IceCubes, Sold Out");
                 soldOut = true;
             }
-
-           
         }
 
         public void RemoveSugarCubesToInventory(int numberOfSugarCubes)
@@ -123,15 +117,15 @@ namespace LemonadeStand
                 {
                   for (int i = 0; i < numberOfSugarCubes; i++)
                   {
-                  sugarCubes.RemoveAt(sugarCubes.Count - 1);
+                   sugarCubes.RemoveAt(sugarCubes.Count - 1);
                   }
         
                 }
                 catch
                 {
-                    Console.WriteLine("Ran out of ice, Sold Out");
+                 Console.WriteLine("Ran out of ice, Sold Out");
                  soldOut = true;
-            }
+                }
             }
        
 
@@ -141,7 +135,7 @@ namespace LemonadeStand
             {
                 for (int i = 0; i < numberOfLemons; i++)
                  {
-                lemons.RemoveAt(lemons.Count - 1);
+                     lemons.RemoveAt(lemons.Count - 1);
                  }
             }
             catch
@@ -149,7 +143,6 @@ namespace LemonadeStand
                 Console.WriteLine("Sold out of Lemons, Sold Out");
                 soldOut = true;
             }
-            
         }
 
        public void checkIfSoldOut()
@@ -162,7 +155,6 @@ namespace LemonadeStand
             {
                 soldOut = false;
             }
-
         }
     }
 }

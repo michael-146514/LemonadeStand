@@ -109,11 +109,11 @@ namespace LemonadeStand
 
                 if(priceCost <= 1)
                 {
-                    pricePercent = chance - 65;
+                    pricePercent = 65 - chance;
                 }
                 else if(priceCost >= 1)
                 {
-                    pricePercent = chance + 65;
+                    pricePercent = 65 + chance;
                 }
             }
             else if(weather == "Cloudy Sky")
@@ -122,11 +122,11 @@ namespace LemonadeStand
 
                 if (priceCost <= .90)
                 {
-                    pricePercent = chance - 50;
+                    pricePercent = 50 - chance;
                 }
                 else if (priceCost >= .90)
                 {
-                    pricePercent = chance + 50;
+                    pricePercent = 50 + chance;
                 }
             }
             else if(weather == "Raining")
@@ -135,24 +135,24 @@ namespace LemonadeStand
 
                 if (priceCost <= .75)
                 {
-                    pricePercent = chance - 40;
+                    pricePercent = 40 - chance;
                 }
                 else if (priceCost >= .75)
                 {
-                    pricePercent = chance + 40;
+                    pricePercent = 40 + chance;
                 }
             }
             else if(weather == "Storming")
             {
-                int chance = rand.Next(1, 15);
+                int chance = rand.Next(1, 10);
 
                 if (priceCost <= .65)
                 {
-                    pricePercent = chance - 25;
+                    pricePercent = 25 - chance;
                 }
                 else if (priceCost >= .65)
                 {
-                    pricePercent = chance + 25;
+                    pricePercent = 25 + chance;
                 }
             }
             else if(weather == "Heat Wave")
@@ -161,11 +161,11 @@ namespace LemonadeStand
 
                 if (priceCost <= 1.2)
                 {
-                    pricePercent = chance - 80;
+                    pricePercent = 80 - chance;
                 }
                 else if (priceCost >= 1.2)
                 {
-                    pricePercent = chance + 80;
+                    pricePercent = 80 + chance;
                 }
             }
         }

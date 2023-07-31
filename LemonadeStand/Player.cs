@@ -12,6 +12,8 @@ namespace LemonadeStand
         public Inventory inventory;
         public Wallet wallet;
         public Recipe recipe;
+        public double profitOrLoss;
+        public double totalMade = 0;
 
         // constructor (SPAWNER)
         public Player()
@@ -38,5 +40,18 @@ namespace LemonadeStand
             inventory.RemoveSugarCubesToInventory(recipe.numberOfSugarCubes);
         }
 
+        public void DisplayProfitOrLoss(double lemon, double sugarCube, double icecube, double cup)
+        {
+            lemon = lemon * recipe.numberOfLemons;
+            sugarCube = sugarCube * recipe.numberOfSugarCubes;
+            icecube = icecube * recipe.numberOfIceCubes;
+            cup = cup * 1;
+
+            double total = lemon + sugarCube + icecube + cup;
+            profitOrLoss = recipe.price - total;
+            totalMade = profitOrLoss * totalMade;
+
+            Console.WriteLine($"You made ${profitOrLoss} selling one Cup, In total you made ${totalMade} in a day");
+        }
     }
 }

@@ -50,6 +50,7 @@ namespace LemonadeStand
             CreateCustomer();
             player.DisplayWallet();
             player.inventory.displayInventory();
+                player.DisplayProfitOrLoss(store.pricePerLemon, store.pricePerSugarCube, store.pricePerIceCube, store.pricePerCup);
             }
            
         }
@@ -86,6 +87,7 @@ namespace LemonadeStand
                     Console.WriteLine("Buying Lemonade");
                     player.wallet.AcceptMoney(player.recipe.price);
                 player.recipeItems();
+                    player.totalMade++;
                   }
             }
         }
