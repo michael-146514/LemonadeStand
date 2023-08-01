@@ -66,7 +66,6 @@ namespace LemonadeStand
             }
             player.inTotalMade();
         }
-
         public void shop()
         {
             Console.WriteLine("Would You like to buy stuff from the shop? Enter Yes or No");
@@ -85,7 +84,6 @@ namespace LemonadeStand
                 store.SellCups(player);
             }
         }
-
         public void CreateCustomer()
         {
             for (int i = 0; i <= 20; i++)
@@ -103,7 +101,6 @@ namespace LemonadeStand
                }
             }
         }
-
         public void createRecipe()
         {
             Console.WriteLine("Would you like to edit the Recipe? Enter Yes or no");
@@ -114,7 +111,6 @@ namespace LemonadeStand
                 player.recipe.setRecipe();
             }
         }
-
         public void setprice()
         {
             Console.WriteLine("Would you like to edit the price you sell Lemonade? Enter Yes or no");

@@ -20,7 +20,6 @@ namespace LemonadeStand
 
                 userInputIsAnInteger = Int32.TryParse(Console.ReadLine(), out quantityOfItem);
             }
-
             return quantityOfItem;
         }
 
@@ -36,7 +35,6 @@ namespace LemonadeStand
 
                 userInputIsAnInteger = Int32.TryParse(Console.ReadLine(), out quantityOfItem);
             }
-
             return quantityOfItem;
         }
 
@@ -52,7 +50,6 @@ namespace LemonadeStand
 
                 userInputIsAnInteger = Int32.TryParse(Console.ReadLine(), out quantityOfItem);
             }
-
             return quantityOfItem;
         }
 
@@ -68,7 +65,6 @@ namespace LemonadeStand
 
                 userInputIsAnInteger = double.TryParse(Console.ReadLine(), out price);
             }
-
             return price;
         }
     }

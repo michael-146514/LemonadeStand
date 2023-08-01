@@ -21,7 +21,6 @@ namespace LemonadeStand
             priceCost = price;
         }
 
-
         public void CheckIfBuying(string weather)
         {
             Random rand = new Random();
