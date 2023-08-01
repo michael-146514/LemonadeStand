@@ -12,12 +12,13 @@ namespace LemonadeStand
         public bool buy = false;
         public bool soldOut;
         public int pricePercent;
-        public int priceCost;
+        public double priceCost;
 
-        public Customer(string weather)
+        public Customer(string weather, double price)
         {
             priceChance(weather);
-        
+
+            priceCost = price;
         }
 
 
@@ -107,11 +108,11 @@ namespace LemonadeStand
             {
                 int chance = rand.Next(1, 15);
 
-                if(priceCost <= 1)
+                if(priceCost <= 3.5)
                 {
                     pricePercent = 65 - chance;
                 }
-                else if(priceCost >= 1)
+                else if(priceCost >= 3.5)
                 {
                     pricePercent = 65 + chance;
                 }
@@ -120,11 +121,11 @@ namespace LemonadeStand
             {
                 int chance = rand.Next(1, 13);
 
-                if (priceCost <= .90)
+                if (priceCost <= 1.5)
                 {
                     pricePercent = 50 - chance;
                 }
-                else if (priceCost >= .90)
+                else if (priceCost >= 1.5)
                 {
                     pricePercent = 50 + chance;
                 }
@@ -133,7 +134,7 @@ namespace LemonadeStand
             {
                 int chance = rand.Next(1, 15);
 
-                if (priceCost <= .75)
+                if (priceCost <= 1)
                 {
                     pricePercent = 40 - chance;
                 }
@@ -146,24 +147,24 @@ namespace LemonadeStand
             {
                 int chance = rand.Next(1, 10);
 
-                if (priceCost <= .65)
+                if (priceCost <= 1)
                 {
                     pricePercent = 25 - chance;
                 }
-                else if (priceCost >= .65)
+                else if (priceCost >= .75)
                 {
                     pricePercent = 25 + chance;
                 }
             }
             else if(weather == "Heat Wave")
             {
-                int chance = rand.Next(1, 10);
+                int chance = rand.Next(1, 15);
 
-                if (priceCost <= 1.2)
+                if (priceCost <= 3.5)
                 {
                     pricePercent = 80 - chance;
                 }
-                else if (priceCost >= 1.2)
+                else if (priceCost >= 2)
                 {
                     pricePercent = 80 + chance;
                 }

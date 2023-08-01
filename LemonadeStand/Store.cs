@@ -78,10 +78,5 @@ namespace LemonadeStand
         {
             wallet.PayMoneyForItems(transactionAmount);
         }
-
-
-
-
-
     }
 }

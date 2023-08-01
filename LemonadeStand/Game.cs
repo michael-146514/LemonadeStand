@@ -15,11 +15,12 @@ namespace LemonadeStand
 
         public void game()
         {
+            //The Game() method follows the SRP by having a single responsibility of running the game.
+
             CreateObjects();
             DisplayWelcomeMessage();
-            player.recipe.DisplayRecipe();
-            days(7);
             
+            days(7);
         }
 
         public void DisplayWelcomeMessage()
@@ -31,6 +32,7 @@ namespace LemonadeStand
 
         public void CreateObjects()
         {
+            //The CreateObject() is a OCP because it create instances of the Player, Weather, Store. This design allows for modifcation without editing the existing classes.
             player = new Player();
             weather = new Weather();
             store = new Store();
@@ -39,18 +41,28 @@ namespace LemonadeStand
         public void days(int days)
         {
 
-            for(int i = 1; i <= days; i++)
+            for (int i = 1; i <= days; i++)
             {
                 Console.WriteLine();
-            player.inventory.displayInventory();
+                Console.WriteLine($"Welcome to Day {i}");
+                player.inventory.displayInventory();
+                player.DisplayWallet();
                 Console.WriteLine();
-            weather.PickWeather();
+                player.recipe.DisplayRecipe();
+                Console.WriteLine();
+                weather.PickWeather();
                 createRecipe();
-            shop();
-            CreateCustomer();
-            player.DisplayWallet();
-            player.inventory.displayInventory();
+                shop();
+                setprice();
+                CreateCustomer();
+                player.DisplayWallet();
+                player.inventory.displayInventory();
                 player.DisplayProfitOrLoss(store.pricePerLemon, store.pricePerSugarCube, store.pricePerIceCube, store.pricePerCup);
+                if(player.wallet.Money <= 0)
+                 {
+                    Console.WriteLine("You ran out of money :( GAME OVER...");
+                    break;
+                 }
             }
             player.inTotalMade();
         }
@@ -79,16 +91,16 @@ namespace LemonadeStand
             for (int i = 0; i <= 20; i++)
             {
                 player.inventory.checkIfSoldOut();
-                customer = new Customer(weather.weather);
+                customer = new Customer(weather.weather, player.recipe.price);
                 customer.soldOut = player.inventory.soldOut;
                 customer.CheckIfBuying(weather.weather);
             if(customer.buy == true && player.inventory.soldOut == false)
-                  {
+               {
                     Console.WriteLine("Buying Lemonade");
                     player.wallet.AcceptMoney(player.recipe.price);
                 player.recipeItems();
                     player.Daytotal++;
-                  }
+               }
             }
         }
 
@@ -100,6 +112,17 @@ namespace LemonadeStand
             if(yesOrno == "Yes" || yesOrno == "yes")
             {
                 player.recipe.setRecipe();
+            }
+        }
+
+        public void setprice()
+        {
+            Console.WriteLine("Would you like to edit the price you sell Lemonade? Enter Yes or no");
+            string yesOrno = Console.ReadLine();
+
+            if (yesOrno == "Yes" || yesOrno == "yes")
+            {
+                player.recipe.setPrice();
             }
         }
     }

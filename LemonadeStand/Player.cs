@@ -53,7 +53,7 @@ namespace LemonadeStand
             Daytotal = profitOrLoss * Daytotal;
             totalMade = profitOrLoss * Daytotal;
 
-            Console.WriteLine($"You made ${profitOrLoss} selling one Cup, In total you made ${Daytotal} in a day");
+            Console.WriteLine($"Profit of selling one Cup of lemonade is ${profitOrLoss}, In total you made ${Daytotal} in a day");
             Daytotal = 0;
         }
 

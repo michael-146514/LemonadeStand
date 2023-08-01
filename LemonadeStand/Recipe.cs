@@ -27,7 +27,7 @@ namespace LemonadeStand
         //Member Methods (CAN DO)
         public void DisplayRecipe()
         {
-            Console.WriteLine($"Your recipe currently consists of:\n{numberOfLemons} lemons per pitcher\n{numberOfSugarCubes} sugar cubes per pitcher\n{numberOfIceCubes} ice cubes per pitcher");
+            Console.WriteLine($"Your recipe currently consists of:\n{numberOfLemons} lemons per Cup\n{numberOfSugarCubes} sugar cubes per Cup\n{numberOfIceCubes} ice cubes per Cup");
         }
 
         public void setRecipe()
@@ -35,6 +35,11 @@ namespace LemonadeStand
             numberOfLemons = UserInterface.GetNumberOfRecipe("lemons");
             numberOfSugarCubes = UserInterface.GetNumberOfRecipe("Sugar Cubes");
             numberOfIceCubes = UserInterface.GetNumberOfRecipe("Ice Cubes");
+        }
+
+        public void setPrice()
+        {
+            price = UserInterface.GetNumberForPrice(price);
         }
     }
 }

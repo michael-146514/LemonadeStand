@@ -55,5 +55,21 @@ namespace LemonadeStand
 
             return quantityOfItem;
         }
+
+        public static double GetNumberForPrice(double currentPrice)
+        {
+            bool userInputIsAnInteger = false;
+            double price = 6;
+
+            while (!userInputIsAnInteger || price >= 5)
+            {
+                Console.WriteLine($"Current Price is set to ${currentPrice}");
+                Console.WriteLine("Please enter a Number to set the Lemonade selling price! Cant go past $5");
+
+                userInputIsAnInteger = double.TryParse(Console.ReadLine(), out price);
+            }
+
+            return price;
+        }
     }
 }
